@@ -1,0 +1,63 @@
+{
+  "author": "Евсеев Данила",
+  "date": "2026-10-13",
+  "python": "3.12.14",
+  "versions": {
+    "pandas": "3.0.1",
+    "numpy": "2.5.4",
+    "scikit-learn": "1.9.1",
+    "matplotlib": "3.11.2",
+    "requests": "2.34.2",
+    "beautifulsoup4": "4.15.0",
+    "nbformat": "5.11.1",
+    "nbclient": "0.11.0",
+    "ipykernel": "7.4.0"
+  },
+  "source_sha256": "d9d4563699d9ebd5b42a9f32876434eff4601a3189617a3033fd1c2017cee1ac",
+  "raw_rows": 582,
+  "pairs": 516,
+  "excluded_rows": 66,
+  "split_rows": {
+    "train": 338,
+    "validation": 89,
+    "test": 89
+  },
+  "selection": {
+    "model": "LogisticRegression",
+    "variant": "Исходные голы",
+    "features": [
+      "win_rate",
+      "goals_for",
+      "goals_against"
+    ],
+    "parameters": {
+      "C": 1.0,
+      "solver": "lbfgs",
+      "max_iter": 2000,
+      "tol": 0.0001,
+      "random_state": 42
+    },
+    "preprocessing": "SimpleImputer(median) -> StandardScaler; fit only on train",
+    "selection_rule": "maximum pooled validation ROC-AUC; original features on tie",
+    "refit_on_train_plus_validation": false,
+    "validation_auc": 0.7745694022289767,
+    "threshold": 0.5
+  },
+  "test_metrics": {
+    "Константа train prior": {
+      "ROC-AUC": 0.5,
+      "F1@0.5": 0.0,
+      "accuracy@0.5": 0.5280898876404494
+    },
+    "Текущий win_rate": {
+      "ROC-AUC": 0.7403748733535969,
+      "F1@0.5": 0.6521739130434783,
+      "accuracy@0.5": 0.6404494382022472
+    },
+    "Выбранная логистическая регрессия": {
+      "ROC-AUC": 0.7553191489361701,
+      "F1@0.5": 0.6990291262135923,
+      "accuracy@0.5": 0.651685393258427
+    }
+  }
+}

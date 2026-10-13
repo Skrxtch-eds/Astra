@@ -1,0 +1,21 @@
+{
+  "model": "LogisticRegression",
+  "variant": "Исходные голы",
+  "features": [
+    "win_rate",
+    "goals_for",
+    "goals_against"
+  ],
+  "parameters": {
+    "C": 1.0,
+    "solver": "lbfgs",
+    "max_iter": 2000,
+    "tol": 0.0001,
+    "random_state": 42
+  },
+  "preprocessing": "SimpleImputer(median) -> StandardScaler; fit only on train",
+  "selection_rule": "maximum pooled validation ROC-AUC; original features on tie",
+  "refit_on_train_plus_validation": false,
+  "validation_auc": 0.7745694022289767,
+  "threshold": 0.5
+}
